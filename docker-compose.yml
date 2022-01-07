@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+    mysqldb:
+        platform: linux/amd64
+        image: mysql:5.7
+        ports:
+            - 3306:3306
+        volumes:
+            - .db:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: "forum_backend"
+            MYSQL_USER: "forum_backend"
+            MYSQL_PASSWORD: "f9082m3e4f09"
+            MYSQL_ROOT_PASSWORD: "f9082m3e4f09"
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_HOST: "%"
+    backend:
+        depends_on:
+            - mysqldb
+        ports:
+            - 3333:3333
+        build:
+            dockerfile: ./Dockerfile
+        stdin_open: true
+        volumes:
+            - .:/app

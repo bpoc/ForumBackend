@@ -1,0 +1,15 @@
+{
+    "extends": ["plugin:adonis/typescriptApp", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {},
+            {
+                "usePrettierrc": true
+            }
+        ],
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off"
+    }
+}

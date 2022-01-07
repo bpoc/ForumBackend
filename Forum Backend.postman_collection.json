@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "bc090edb-bc41-4cc7-b140-d4619adef9d9",
+		"name": "Forum Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Save User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "bpoconner+3@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "dude",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "bpoconner@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "dude",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "bpoconner+2@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "dude",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "bpoconner@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "dude",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topic",
+			"item": [
+				{
+					"name": "Create Topic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Programming",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "A place to talk about all communication related issues",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/topics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Topics",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/topics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Topic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/topics/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"topics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Topic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Video",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "A place to talk about all video related issues",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/topics/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"topics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Topic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Programming",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "A place to talk about all programming related issues",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/topics/5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"topics",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Thread",
+			"item": [
+				{
+					"name": "Create Thread",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Whats the best programming language 3",
+									"type": "default"
+								},
+								{
+									"key": "topicId",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/threads",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"threads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Thread",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/threads/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"threads",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Thread",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Programming",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/threads/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"threads",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Thread",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/threads/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"threads",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "I think it's JavaScript",
+									"type": "default"
+								},
+								{
+									"key": "threadId",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/posts/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "I think it's Typescript!!!!",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_TOKEN",
+			"value": "M5FIuDzgjXMAhDWb2Iljr5b8UW4WXzKspfJzffoxrJMtX0EdqE"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3333",
+			"type": "default"
+		}
+	]
+}
