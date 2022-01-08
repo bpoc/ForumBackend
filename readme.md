@@ -10,6 +10,23 @@ Before you get started you'll want to install
  - Node 16 installed (I use NVM to do so)
  - Docker Desktop
 
+## Create a .env file
+
+Create a .env file. These are the values I was using for testing
+
+    PORT=3333
+    HOST=0.0.0.0
+    NODE_ENV=development
+    APP_KEY=nSblyAXK5AQOp2Ky9HPDr79v80WYgSMs
+    DRIVE_DISK=local
+    DB_CONNECTION=mysql
+    MYSQL_HOST=mysqldb
+    MYSQL_PORT=3306
+    MYSQL_USER=forum_backend
+    MYSQL_PASSWORD=f9082m3e4f09
+    MYSQL_DB_NAME=forum_backend
+
+
 ## Running the Backend Locally
 
 To start the application run 
