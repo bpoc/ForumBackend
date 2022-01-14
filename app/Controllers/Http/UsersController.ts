@@ -71,6 +71,6 @@ export default class UsersController {
 
         //attempt to generate a token
         const token = await auth.use("api").attempt(userInfo.email, userInfo.password, {expiresIn: "1day"});
-        return token;
+        return {token, user: auth.user};
     }
 }
