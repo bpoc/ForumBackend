@@ -28,11 +28,19 @@ export default class TopicsController {
         return newTopic;
     }
 
-    public async show({params}: HttpContextContract) {
-        const topic = await Topic.findOrFail(params.id);
-        await topic.load("user");
-        await topic.load("threads");
-        return topic;
+    public async show({params, response}: HttpContextContract) {
+        const topic = await Topic.query()
+            .preload("user")
+            .preload("threads", (query) => {
+                //load in users with our threadsq
+                query.preload("user");
+            })
+            .where("id", params.id);
+        if (topic.length <= 0) {
+            response.notFound("No Topic by that id exists");
+            return;
+        }
+        return topic[0];
     }
 
     public async update({bouncer, request, params}: HttpContextContract) {
