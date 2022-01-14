@@ -9,7 +9,7 @@ export default class ThreadsController {
     public async store({request, auth}: HttpContextContract) {
         //threads require a name a topicId
         const threadSchema = schema.create({
-            name: schema.string({trim: true, escape: true}, [rules.minLength(5), rules.maxLength(70)]),
+            name: schema.string({trim: true}, [rules.minLength(5), rules.maxLength(70)]),
             topicId: schema.number(),
         });
         const threadPayload = await request.validate({schema: threadSchema});
@@ -60,7 +60,7 @@ export default class ThreadsController {
         //get the thread
         const thread = await Thread.findOrFail(params.id);
         const threadSchema = schema.create({
-            name: schema.string({trim: true, escape: true}, [rules.minLength(5), rules.maxLength(70)]),
+            name: schema.string({trim: true}, [rules.minLength(5), rules.maxLength(70)]),
         });
         const threadPayload = await request.validate({schema: threadSchema});
         await bouncer.authorize("updateThread", thread);

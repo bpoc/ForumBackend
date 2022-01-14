@@ -8,7 +8,7 @@ export default class PostsController {
 
     public async store({request, auth}: HttpContextContract) {
         const postSchema = schema.create({
-            text: schema.string({trim: true, escape: true}, [rules.minLength(5), rules.maxLength(1000)]),
+            text: schema.string({trim: true}, [rules.minLength(5), rules.maxLength(1000)]),
             threadId: schema.number(),
         });
         const postPayload = await request.validate({schema: postSchema});
@@ -31,7 +31,7 @@ export default class PostsController {
 
     public async update({bouncer, params, request}: HttpContextContract) {
         const postSchema = schema.create({
-            text: schema.string({trim: true, escape: true}, [rules.minLength(5), rules.maxLength(500)]),
+            text: schema.string({trim: true}, [rules.minLength(5), rules.maxLength(500)]),
         });
         const postPayload = await request.validate({schema: postSchema});
         const post = await Post.findOrFail(params.id);

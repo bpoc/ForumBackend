@@ -46,8 +46,8 @@ export default class TopicsController {
     public async update({bouncer, request, params}: HttpContextContract) {
         //create schema because we are updating both name and description are optional
         const updateSchema = schema.create({
-            name: schema.string.optional({trim: true, escape: true}, [rules.maxLength(50), rules.minLength(3)]),
-            description: schema.string.optional({trim: true, escape: true}, [rules.maxLength(500), rules.minLength(3)]),
+            name: schema.string.optional({trim: true}, [rules.maxLength(50), rules.minLength(3)]),
+            description: schema.string.optional({trim: true}, [rules.maxLength(500), rules.minLength(3)]),
         });
         const updatePayload = await request.validate({schema: updateSchema});
         //get the topic
